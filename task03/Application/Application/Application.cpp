@@ -6,7 +6,7 @@
 
 using namespace std;
 
-long forest[100][100]; //Forest with Winnie.
+long forest[20][20]; //Forest with Winnie.
 volatile bool check = false; //Is Winnie found flag. 
 int str; //Next string to search for Winnie.
 int first_ans, second_ans; //Winnie coords.
@@ -24,7 +24,7 @@ void* searching_func(void* line, int num) {
     bool complete = false; //Hive didnt stop searching for Winnie here.
     while (!check) { //If Winnie is found.
         mut.lock();
-        for (int i = 0; i < 100; ++i) {
+        for (int i = 0; i < 20; ++i) {
             if (forest[str][i] == 1) {
                 //If Winnie was found in this row.
                 check = true;
@@ -48,7 +48,7 @@ int main()
 {
     // Random seed.
     srand(time(0));
-    int n = 100;
+    int n = 20;
 
     // Number of Hives input.
     cout << "Enter number of Hives" << endl;
