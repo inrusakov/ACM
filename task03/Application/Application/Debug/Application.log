@@ -1,4 +1,4 @@
 ﻿  Application.cpp
-C:\Users\xiaomi\Documents\GitHub\ACM\task03\Application\Application\Application.cpp(50,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\xiaomi\Documents\GitHub\ACM\task03\Application\Application\Application.cpp(80,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\xiaomi\Documents\GitHub\ACM\task03\Application\Application\Application.cpp(50,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\xiaomi\Documents\GitHub\ACM\task03\Application\Application\Application.cpp(82,26): warning C4018: <: несоответствие типов со знаком и без знака
   Application.vcxproj -> C:\Users\xiaomi\Documents\GitHub\ACM\task03\Application\Debug\Application.exe

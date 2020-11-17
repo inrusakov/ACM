@@ -6,27 +6,27 @@
 
 using namespace std;
 
-long forest[100][100]; //Лес с Винни.
-volatile bool check = false; //Найден ли Винни.
-int str; //Номер строки для следующего поиска Винни.
-int first_ans, second_ans; //Координаты найденного Винни.
+long forest[100][100]; //Forest with Winnie.
+volatile bool check = false; //Is Winnie found flag. 
+int str; //Next string to search for Winnie.
+int first_ans, second_ans; //Winnie coords.
 int num_of_threads;
 mutex mut;
 
 /// <summary>
-/// Метод для поиска Винни в одной строке леса.
+/// Checking for Winnie in 1 row.
 /// </summary>
-/// <param name="line">Номер строки для поиска.</param>
-/// <param name="num">Номер роя.</param>
-/// <returns>Темную пустоту.</returns>
+/// <param name="line">Num of row to search.</param>
+/// <param name="num">Number of Hive.</param>
+/// <returns>Dark void.</returns>
 void* searching_func(void* line, int num) {
 
-    bool complete = false; //Пчелы не закончили поиск в этом секторе.
-    while (!check) { //Если Винни уже был найден.
+    bool complete = false; //Hive didnt stop searching for Winnie here.
+    while (!check) { //If Winnie is found.
         mut.lock();
         for (int i = 0; i < 100; ++i) {
             if (forest[str][i] == 1) {
-                // Если Винни был найден в этом секторе.
+                //If Winnie was found in this row.
                 check = true;
                 complete = true;
                 cout << endl << "Sector: " << str << " Winnie was found here by Hive: " << num << endl;
@@ -34,7 +34,7 @@ void* searching_func(void* line, int num) {
                 first_ans = i;
             }
         }
-        if (!complete) { //Если не готовы значит этот отряд пчел не нашел
+        if (!complete) { //If Winnie wasnt found in this row.
             cout << "Sector: " << str << " Winnie was not found here        Hive: " << num << " goes home" << endl;
         }
         str++;
@@ -46,11 +46,11 @@ void* searching_func(void* line, int num) {
 
 int main()
 {
-    // Сид для рандома.
+    // Random seed.
     srand(time(0));
     int n = 100;
 
-    // Ввод числа роев.
+    // Number of Hives input.
     cout << "Enter number of Hives" << endl;
     cin >> num_of_threads;
     if (num_of_threads > n || num_of_threads < 1)
@@ -59,15 +59,17 @@ int main()
         exit(0);
     }
 
-    // Заполнение леса.
+    // Filling forest.
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             forest[i][j] = 0;
         }
     }
-    int x = rand() % (n + 1); //Координата Винни в лесу.
-    int y = rand() % (n + 1); //Координата Винни в лесу.
-    // Сектор в котором прячется Винни.
+    //Winnie's coords.
+    int x = rand() % (n + 1); 
+    int y = rand() % (n + 1);
+
+    //Winnie's coords output.
     forest[x][y] = 1;
     cout << "Winnie is here :" << x << " " << y << endl;
 
