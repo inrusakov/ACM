@@ -1,0 +1,3 @@
+﻿  Application.cpp
+C:\Users\xiaomi\Documents\GitHub\ACM\task04\Application\Application\Application.cpp(51,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Application.vcxproj -> C:\Users\xiaomi\Documents\GitHub\ACM\task04\Application\Debug\Application.exe
