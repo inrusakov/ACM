@@ -2,7 +2,7 @@
 Architecture of computing systems
 Русаков Иван БПИ194
 
-Task 03
+Task 04
 
 Вариант 22.
 
